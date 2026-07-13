@@ -2,108 +2,169 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#264261">
-  <meta name="description" content="Application de l'Association du Grand Pavois">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071f4b">
+  <meta name="description" content="AGP & Vous — Association du Grand Pavois">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="styles.css">
-  <title>AGP – Grand Pavois</title>
+  <title>AGP & Vous</title>
 </head>
 <body>
-  <header class="hero">
-    <div class="brand">
-      <img src="icon-192.png" alt="Logo AGP">
-      <div>
-        <p class="eyebrow">Association du Grand Pavois</p>
-        <h1>AGP & Vous</h1>
-      </div>
-    </div>
-    <p class="tagline">L'information, les sorties et l'entraide entre voisins.</p>
+<div id="app">
+  <header class="topbar">
+    <button class="brand" data-go="accueil" aria-label="Accueil">
+      <img src="assets/icon-192.png" alt="">
+      <span><b>AGP & Vous</b><small>Association du Grand Pavois</small></span>
+    </button>
+    <button class="login-pill" data-open="login">Se connecter</button>
   </header>
 
   <main>
-    <section class="notice">
-      <strong>Bienvenue sur l'application AGP.</strong>
-      <span>Ajoutez-la à l'écran d'accueil de votre téléphone pour y accéder comme à une application.</span>
-    </section>
-
-    <nav class="grid" aria-label="Rubriques principales">
-      <button class="card" data-target="actualites"><span>📢</span><b>Actualités</b><small>Les dernières informations</small></button>
-      <button class="card" data-target="agenda"><span>📅</span><b>Agenda</b><small>Sorties et rencontres</small></button>
-      <button class="card" data-target="entraide"><span>🤝</span><b>Entraide</b><small>Demandes entre voisins</small></button>
-      <button class="card" data-target="artisans"><span>🛠️</span><b>Artisans</b><small>Contacts recommandés</small></button>
-      <button class="card" data-target="documents"><span>📄</span><b>Documents</b><small>AGP Mag et informations</small></button>
-      <button class="card" data-target="contacts"><span>☎️</span><b>Contacts</b><small>Numéros utiles</small></button>
-    </nav>
-
-    <section id="actualites" class="panel">
-      <div class="panel-head"><h2>Actualités</h2><button class="close">Fermer</button></div>
-      <article>
-        <span class="badge">À la une</span>
-        <h3>Bienvenue dans la nouvelle application AGP</h3>
-        <p>Cette première version réunit les informations utiles, les activités et les contacts de l'association.</p>
-      </article>
-      <article>
-        <span class="badge secondary">Vie de l'association</span>
-        <h3>Café des voisins</h3>
-        <p>Retrouvez-nous chaque jeudi de 15 h à 17 h à L'Appart, 331 avenue du Prado.</p>
-      </article>
-    </section>
-
-    <section id="agenda" class="panel">
-      <div class="panel-head"><h2>Agenda</h2><button class="close">Fermer</button></div>
-      <article class="event">
-        <div class="datebox"><strong>JEU</strong><span>15–17h</span></div>
-        <div><h3>Café des voisins</h3><p>L'Appart – 331 avenue du Prado</p><a class="button" href="mailto:association.agp@example.com?subject=Inscription%20Café%20des%20voisins">Je participe</a></div>
-      </article>
-      <article class="event">
-        <div class="datebox"><strong>À VENIR</strong><span>AGP</span></div>
-        <div><h3>Prochaine sortie</h3><p>Les prochaines activités seront publiées ici.</p></div>
-      </article>
-    </section>
-
-    <section id="entraide" class="panel">
-      <div class="panel-head"><h2>Entraide</h2><button class="close">Fermer</button></div>
-      <p>Besoin d'un coup de main ou envie de proposer un service ? Envoyez votre demande à l'AGP. Elle sera vérifiée avant publication.</p>
-      <a class="button wide" href="mailto:association.agp@example.com?subject=Demande%20d'entraide%20AGP&body=Nom%20:%0AAppartement%20:%0ATéléphone%20:%0AMa%20demande%20:%0A">Envoyer une demande</a>
-    </section>
-
-    <section id="artisans" class="panel">
-      <div class="panel-head"><h2>Artisans recommandés</h2><button class="close">Fermer</button></div>
-      <div class="list">
-        <div><b>Plomberie</b><span>À compléter</span></div>
-        <div><b>Électricité</b><span>À compléter</span></div>
-        <div><b>Serrurerie</b><span>À compléter</span></div>
-        <div><b>Informatique</b><span>À compléter</span></div>
+    <section id="accueil" class="screen active">
+      <div class="hero">
+        <img src="assets/tour.jpg" alt="Le Grand Pavois à Marseille">
+        <div class="shade"></div>
+        <div class="hero-content">
+          <span class="kicker">MARSEILLE 8e</span>
+          <h1>Bienvenue au<br>Grand Pavois</h1>
+          <p>Retrouvez les activités, les informations utiles et les services de l'AGP.</p>
+          <div class="hero-actions">
+            <button class="primary" data-go="activites">Voir les activités</button>
+            <button class="glass" data-open="login">Espace adhérents</button>
+          </div>
+        </div>
       </div>
-      <p class="smallprint">Les coordonnées sont communiquées à titre indicatif. L'AGP ne garantit pas les prestations réalisées.</p>
+
+      <section class="section">
+        <div class="section-title">
+          <div><span>À LA UNE</span><h2>Les dernières nouvelles</h2></div>
+        </div>
+        <article class="news-card">
+          <div class="news-icon">☕</div>
+          <div>
+            <span class="tag">Vie de l'association</span>
+            <h3>Café des voisins</h3>
+            <p>Chaque jeudi de 15 h à 17 h à L'Appart, 331 avenue du Prado.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <div><span>PROCHAINE ACTIVITÉ</span><h2>À ne pas manquer</h2></div>
+          <button class="text-btn" data-go="activites">Tout voir</button>
+        </div>
+        <article class="activity-feature">
+          <img src="assets/prado.jpg" alt="Le Prado et la mer">
+          <div class="activity-copy">
+            <span class="date-chip">À VENIR</span>
+            <h3>Nouvelle sortie AGP</h3>
+            <p>Les prochaines activités seront publiées ici avec toutes les informations utiles.</p>
+            <button class="secondary" data-open="login">S'inscrire</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="section private-preview">
+        <div class="private-head">
+          <div>
+            <span>ESPACE ADHÉRENTS</span>
+            <h2>Les services entre voisins</h2>
+          </div>
+          <span class="lock">🔒</span>
+        </div>
+        <div class="service-grid">
+          <button data-open="login"><i>🛍️</i><b>Entre voisins</b><small>Vendre, donner ou rechercher</small></button>
+          <button data-open="login"><i>🤝</i><b>Entraide</b><small>Demandes et propositions</small></button>
+          <button data-open="login"><i>🛠️</i><b>Artisans</b><small>Contacts recommandés</small></button>
+          <button data-open="login"><i>📢</i><b>Infos Grand Pavois</b><small>Informations réservées</small></button>
+        </div>
+      </section>
+
+      <section class="join">
+        <img src="assets/drone.jpg" alt="Vue aérienne du Grand Pavois">
+        <div class="shade"></div>
+        <div>
+          <span>REJOINDRE L'AGP</span>
+          <h2>Une association pour mieux vivre ensemble</h2>
+          <p>Rencontres, sorties, entraide et informations utiles pour les copropriétaires résidents.</p>
+          <button class="primary" data-go="adherer">Découvrir l'AGP</button>
+        </div>
+      </section>
     </section>
 
-    <section id="documents" class="panel">
-      <div class="panel-head"><h2>Documents</h2><button class="close">Fermer</button></div>
-      <div class="list links">
-        <a href="#" onclick="return false"><b>AGP Mag</b><span>Ajouter ici le lien vers les numéros</span></a>
-        <a href="#" onclick="return false"><b>Statuts de l'association</b><span>Ajouter le document PDF</span></a>
-        <a href="#" onclick="return false"><b>Adhésion</b><span>Ajouter le lien HelloAsso</span></a>
+    <section id="activites" class="screen">
+      <div class="page-hero compact">
+        <img src="assets/prado.jpg" alt="">
+        <div class="shade"></div>
+        <div><span>AGENDA</span><h1>Les activités de l'AGP</h1><p>Sorties, rencontres et moments conviviaux.</p></div>
+      </div>
+      <div class="section">
+        <article class="event-card">
+          <div class="event-date"><b>JEU</b><span>15–17 h</span></div>
+          <div><span class="tag">Chaque semaine</span><h3>Café des voisins</h3><p>L'Appart — 331 avenue du Prado</p><button class="secondary" data-open="login">Je participe</button></div>
+        </article>
+        <article class="event-card muted">
+          <div class="event-date"><b>BIENTÔT</b><span>AGP</span></div>
+          <div><h3>Prochaine sortie</h3><p>Le programme sera publié prochainement.</p></div>
+        </article>
       </div>
     </section>
 
-    <section id="contacts" class="panel">
-      <div class="panel-head"><h2>Contacts utiles</h2><button class="close">Fermer</button></div>
-      <div class="list links">
-        <a href="tel:0682505996"><b>Stéphanie – AGP</b><span>06 82 50 59 96</span></a>
-        <a href="tel:112"><b>Urgences</b><span>112</span></a>
-        <a href="tel:18"><b>Pompiers</b><span>18</span></a>
-        <a href="tel:15"><b>SAMU</b><span>15</span></a>
+    <section id="adherer" class="screen">
+      <div class="page-hero compact">
+        <img src="assets/tour.jpg" alt="">
+        <div class="shade"></div>
+        <div><span>L'ASSOCIATION</span><h1>Adhérer à l'AGP</h1><p>Participer à la vie du Grand Pavois et profiter des services réservés.</p></div>
+      </div>
+      <div class="section prose">
+        <h2>Pourquoi adhérer ?</h2>
+        <p>L'AGP rassemble les copropriétaires résidents qui souhaitent créer du lien, organiser des activités et faciliter l'entraide au sein du Grand Pavois.</p>
+        <div class="benefits">
+          <div><i>📅</i><b>Activités</b><span>Sorties et rencontres</span></div>
+          <div><i>🤝</i><b>Entraide</b><span>Services entre voisins</span></div>
+          <div><i>🛍️</i><b>Annonces</b><span>Vente, don et recherche</span></div>
+          <div><i>🛠️</i><b>Artisans</b><span>Contacts recommandés</span></div>
+        </div>
+        <button class="primary full" disabled>Adhésion HelloAsso bientôt disponible</button>
+      </div>
+    </section>
+
+    <section id="contact" class="screen">
+      <div class="page-simple">
+        <img class="contact-logo" src="assets/logo.jpg" alt="Logo de l'Association du Grand Pavois">
+        <h1>Contacter l'AGP</h1>
+        <p>Une question, une idée ou une demande d'information ?</p>
+        <a class="contact-button" href="mailto:agp13008@gmail.com">✉️ agp13008@gmail.com</a>
+        <a class="contact-button" href="tel:0755668341">📞 07 55 66 83 41</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Association du Grand Pavois · Marseille</p>
-  </footer>
+  <nav class="bottom-nav">
+    <button class="active" data-go="accueil"><span>⌂</span><small>Accueil</small></button>
+    <button data-go="activites"><span>▣</span><small>Activités</small></button>
+    <button data-open="login"><span>🛍</span><small>Annonces</small></button>
+    <button data-open="login"><span>🤝</span><small>Entraide</small></button>
+    <button data-go="contact"><span>●</span><small>Contact</small></button>
+  </nav>
 
-  <script src="app.js"></script>
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-sheet">
+      <button class="modal-close" data-close>×</button>
+      <img src="assets/icon-192.png" alt="">
+      <span class="secure">ESPACE SÉCURISÉ</span>
+      <h2>Connexion adhérent</h2>
+      <p>Les annonces, l'entraide, les artisans et les informations internes sont réservés aux adhérents.</p>
+      <label>Adresse e-mail<input type="email" placeholder="votre@email.fr" disabled></label>
+      <label>Mot de passe<input type="password" placeholder="••••••••" disabled></label>
+      <button class="primary full" disabled>Connexion bientôt disponible</button>
+      <small>La connexion sera activée avec Firebase.</small>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,24 +1,31 @@
 
-const cards = document.querySelectorAll('.card');
-const panels = document.querySelectorAll('.panel');
-const closeButtons = document.querySelectorAll('.close');
+const screens=[...document.querySelectorAll('.screen')];
+const navButtons=[...document.querySelectorAll('.bottom-nav button[data-go]')];
 
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    panels.forEach(p => p.classList.remove('active'));
-    const panel = document.getElementById(card.dataset.target);
-    panel.classList.add('active');
-    panel.scrollIntoView({behavior:'smooth', block:'start'});
+function go(id){
+  screens.forEach(s=>s.classList.toggle('active',s.id===id));
+  navButtons.forEach(b=>b.classList.toggle('active',b.dataset.go===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.querySelectorAll('[data-go]').forEach(b=>{
+  b.addEventListener('click',()=>go(b.dataset.go));
+});
+
+const modal=document.getElementById('loginModal');
+document.querySelectorAll('[data-open="login"]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  });
+});
+document.querySelectorAll('[data-close]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
   });
 });
 
-closeButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('.panel').classList.remove('active');
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-});
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('service-worker.js'));
 }
